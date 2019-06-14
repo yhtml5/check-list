@@ -13,6 +13,8 @@ const config = require(configPath)
 const {
   debug,
   questions = [],
+  questionTitle,
+  questionInterval,
   rules = [],
 } = config.checkList || {}
 
@@ -25,12 +27,14 @@ if (debug) {
   console.log('> configPath:', configPath)
   console.log('> process.argv:\n', process.argv)
   console.log('> rules:\n', rules)
-  console.log('> questions:\n', questions)
+  console.log('> question:\n', questions, questionInterval)
   console.log('')
 }
 
 module.exports = {
   appDirectory,
   questions,
+  questionTitle,
+  questionInterval,
   rules,
 }

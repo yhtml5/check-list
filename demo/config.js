@@ -57,6 +57,8 @@ const config = {
       paths: [path.resolve(__dirname, 'dist')],
       regex: /^\s*const|^let/gm,
     }],
+    questionTitle:'请仔细阅读',
+    questionInterval: 10000,
     questions: [
       '是否已同步git提交?',
       '是否通过冒烟测试(自测)?',

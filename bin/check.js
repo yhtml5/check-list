@@ -14,6 +14,8 @@ const ask = require('../lib/ask')
 async function check({
   rules,
   questions,
+  questionTitle,
+  questionInterval,
 } = {}) {
   const failedRules = rules.filter((rule, index) => !checkRule({ ...rule, index }))
 
@@ -22,7 +24,7 @@ async function check({
     process.exit(1)
   }
   const shouldAsk = (process.env.DEBUG !== 'true') && questions && questions.length
-  const ok = shouldAsk ? await ask(questions) : true
+  const ok = shouldAsk ? await ask({ questions, questionInterval, questionTitle }) : true
 
   if (ok) {
     console.log(chalk.blue('\n  √ The checklist was successful!'))
