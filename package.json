@@ -11,7 +11,7 @@
   "scripts": {
     "test": "node ./bin/check ./demo/config.js",
     "debug": "DEBUG=true node ./bin/check ./demo/config.js",
-    "prepublishOnly": "echo will publish && npm version patch && git add package.json && git commit -m 'auto publish'"
+    "prepublishOnly": "echo will publish && npm version patch"
   },
   "dependencies": {
     "chalk": "2.4.1",
