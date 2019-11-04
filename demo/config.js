@@ -56,6 +56,11 @@ const config = {
       describe: '检查是否存在es6语法 dist',
       paths: [path.resolve(__dirname, 'dist')],
       regex: /^\s*const|^let/gm,
+    },{
+      type: 'ext',
+      describe: '不允许存在 js 文件，只允许 typescript',
+      paths: [path.resolve(__dirname, 'ts_src')],
+      disableExt: ['.js'],
     }],
     questionTitle:'请仔细阅读',
     questionInterval: 10000,
