@@ -57,6 +57,8 @@ const config = {
       paths: [path.resolve(__dirname, 'dist')],
       regex: /^\s*const|^let/gm,
     },{
+      type: 'ext2',
+    },{
       type: 'ext',
       describe: '不允许存在 js 文件，只允许 typescript',
       paths: [path.resolve(__dirname, 'ts_src')],
