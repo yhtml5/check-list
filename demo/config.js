@@ -63,6 +63,12 @@ const config = {
       describe: '不允许存在 js 文件，只允许 typescript',
       paths: [path.resolve(__dirname, 'ts_src')],
       disableExt: ['.js'],
+    },{
+      type: 'md5',
+      describe: '以下文件修改前需确认',
+      paths: [
+        { path: path.resolve(__dirname, 'src/index.js'), md5: 'e9a2fb30a1914745db8f4a114f7484b5' },
+      ],
     }],
     questionTitle:'请仔细阅读',
     questionInterval: 10000,
@@ -92,4 +98,3 @@ const config = {
 }
 
 module.exports = config
-
