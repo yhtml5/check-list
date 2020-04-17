@@ -36,6 +36,7 @@ const config = {
       describe: '检查是否存在 alert',
       regex: /alert\(/g,
       paths: [__dirname],
+      ignore: [/dist\/ignored/],
     }, {
       type: 'regex',
       describe: '检查是否存在 console.error',
