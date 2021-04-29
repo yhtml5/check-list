@@ -1,7 +1,7 @@
 node_modules
 .module-cache
 yarn.lock
-package-lock.json
+# package-lock.json
 *.ignore.*
 *.xmind
 .env.local
