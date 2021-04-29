@@ -8,11 +8,13 @@ const config = {
       {
         type: 'title',
         describe: 'Check List Rules:',
-      }, {
+      },
+      {
         type: 'require',
         describe: '检查文件完整性 关键性文件',
         paths: [path.resolve(__dirname, 'src/check/requiredFiles.js')]
-      }, {
+      },
+      {
         type: 'limit',
         describe: '检查文件大小限制 dist',
         paths: [path.resolve(__dirname, 'dist/')],
@@ -41,6 +43,7 @@ const config = {
         describe: '检查是否存在 alert',
         regex: /alert\(/g,
         paths: [__dirname],
+        ignore: [/dist\/ignored/],
       },
       {
         type: 'regex',
@@ -65,6 +68,22 @@ const config = {
         describe: '检查是否存在es6语法 dist',
         paths: [path.resolve(__dirname, 'dist')],
         regex: /^\s*const|^let/gm,
+      },
+      {
+        type: 'ext2',
+      },
+      {
+        type: 'ext',
+        describe: '不允许存在 js 文件，只允许 typescript',
+        paths: [path.resolve(__dirname, 'ts_src')],
+        disableExt: ['.js'],
+      },
+      {
+        type: 'md5',
+        describe: '以下文件修改前需确认',
+        paths: [
+          { path: path.resolve(__dirname, 'src/index.js'), md5: 'e9a2fb30a1914745db8f4a114f7484b5' },
+        ],
       },
       {
         type: 'git',
