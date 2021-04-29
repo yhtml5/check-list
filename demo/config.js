@@ -4,74 +4,67 @@ const path = require('path')
 const config = {
   checkList: {
     debug: false,
-    rules: [{
-      type: 'title',
-      describe: 'Check List Rules:',
-    }, {
-      type: 'require',
-      describe: '检查文件完整性 关键性文件',
-      paths: [path.resolve(__dirname, 'src/check/requiredFiles.js')]
-    }, {
-      type: 'limit',
-      describe: '检查文件大小限制 dist',
-      paths: [path.resolve(__dirname, 'dist/')],
-      min: 0.1,
-      max: 100
-    }, {
-      type: 'vueScoped',
-      describe: '检查是否 正确添加scoped属性',
-      paths: [__dirname],
-    }, {
-      type: 'regex',
-      describe: '检查是否存在 冲突代码',
-      paths: [__dirname],
-      regex: /^<<<<<|^>>>>>/gm,
-    }, {
-      type: 'regex',
-      describe: '检查是否存在 debug',
-      paths: [__dirname],
-      regex: /^\s*debugger/gm,
-    }, {
-      type: 'regex',
-      describe: '检查是否存在 alert',
-      regex: /alert\(/g,
-      paths: [__dirname],
-      ignore: [/dist\/ignored/],
-    }, {
-      type: 'regex',
-      describe: '检查是否存在 console.error',
-      regex: /console.error\(/g,
-      paths: [__dirname],
-    }, {
-      type: 'regex',
-      describe: '检查特殊兼容性语法 includes',
-      regex: /\.includes\(/g,
-      paths: [__dirname],
-    }, {
-      type: 'regex',
-      describe: '检查特殊兼容性语法 Data.now',
-      regex: /Data.now\(/g,
-      paths: [__dirname,],
-    }, {
-      type: 'regex',
-      describe: '检查是否存在es6语法 dist',
-      paths: [path.resolve(__dirname, 'dist')],
-      regex: /^\s*const|^let/gm,
-    },{
-      type: 'ext2',
-    },{
-      type: 'ext',
-      describe: '不允许存在 js 文件，只允许 typescript',
-      paths: [path.resolve(__dirname, 'ts_src')],
-      disableExt: ['.js'],
-    },{
-      type: 'md5',
-      describe: '以下文件修改前需确认',
-      paths: [
-        { path: path.resolve(__dirname, 'src/index.js'), md5: 'e9a2fb30a1914745db8f4a114f7484b5' },
-      ],
-    }],
-    questionTitle:'请仔细阅读',
+    rules: [
+      // {
+      //   type: 'title',
+      //   describe: 'Check List Rules:',
+      // }, {
+      //   type: 'require',
+      //   describe: '检查文件完整性 关键性文件',
+      //   paths: [path.resolve(__dirname, 'src/check/requiredFiles.js')]
+      // }, {
+      //   type: 'limit',
+      //   describe: '检查文件大小限制 dist',
+      //   paths: [path.resolve(__dirname, 'dist/')],
+      //   min: 0.1,
+      //   max: 100
+      // }, {
+      //   type: 'vueScoped',
+      //   describe: '检查是否 正确添加scoped属性',
+      //   paths: [__dirname],
+      // }, {
+      //   type: 'regex',
+      //   describe: '检查是否存在 冲突代码',
+      //   paths: [__dirname],
+      //   regex: /^<<<<<|^>>>>>/gm,
+      // }, {
+      //   type: 'regex',
+      //   describe: '检查是否存在 debug',
+      //   paths: [__dirname],
+      //   regex: /^\s*debugger/gm,
+      // }, {
+      //   type: 'regex',
+      //   describe: '检查是否存在 alert',
+      //   regex: /alert\(/g,
+      //   paths: [__dirname],
+      // }, {
+      //   type: 'regex',
+      //   describe: '检查是否存在 console.error',
+      //   regex: /console.error\(/g,
+      //   paths: [__dirname],
+      // }, {
+      //   type: 'regex',
+      //   describe: '检查特殊兼容性语法 includes',
+      //   regex: /\.includes\(/g,
+      //   paths: [__dirname],
+      // }, {
+      //   type: 'regex',
+      //   describe: '检查特殊兼容性语法 Data.now',
+      //   regex: /Data.now\(/g,
+      //   paths: [__dirname,],
+      // }, {
+      //   type: 'regex',
+      //   describe: '检查是否存在es6语法 dist',
+      //   paths: [path.resolve(__dirname, 'dist')],
+      //   regex: /^\s*const|^let/gm,
+      // },
+      {
+        type: 'git',
+        describe: '检查master分支是否有更新',
+        branch: ['master']
+      }
+    ],
+    questionTitle: '请仔细阅读',
     questionInterval: 10000,
     questions: [
       '是否已同步git提交?',
