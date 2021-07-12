@@ -1,6 +1,6 @@
 {
   "name": "@yhtml5/check-list",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "main": "index.js",
   "author": "yhtml5",
   "license": "MIT",
@@ -21,9 +21,10 @@
     "shelljs": "^0.8.4"
   },
   "devDependencies": {},
+  "homepage": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yhtml5/yhtml5-cli.git"
+    "url": ""
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
